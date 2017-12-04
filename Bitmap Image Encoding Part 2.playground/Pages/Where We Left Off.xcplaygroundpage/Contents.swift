@@ -54,8 +54,8 @@ for character in encodedBitmap {
  
  Write your ideas in the code comment below.
  */
-// I notice that...
-// I know this because...
+// I notice that every time when I run the playground the numbers will change
+// I know this because the numbers are random 
 /*:
  Now, **remember to commit and push your work**.
  */
