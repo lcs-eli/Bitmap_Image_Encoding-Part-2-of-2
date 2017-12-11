@@ -22,7 +22,7 @@
  */
 
 // Here's my list of points describing how I decoded the image...
-// 1.
+// 1. 
 // 2.
 // 3.
 // 4.

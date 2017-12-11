@@ -16,17 +16,32 @@ import PlaygroundSupport
  * Once we have a new number, we draw that many pixels in the current colour.
  
  First, copy and paste your encoded image string to this page.
-*/
+ */
 
 // Copy your encoded image string here...
-let encodedBitmap = """
-1,3,1
-4,1
-1,4
-0,1,3,1
-0,1,3,1
-1,4
+let encodedBitmap =
 """
+a9a9a2
+a4c1a9a1c1a
+a3c1b1c1a8c1b1c1
+a2c1a2b1c1a6c1b1a2c1
+a2c1a3b1c6b1a3c1
+a2c1a2b4a2b4a2c1ca2
+a2c1a1b5a2b5a1c1
+a3c1b5a2b5c1
+a2c1b2c2b2a2b1c2b3c1
+a2c1b2c2b1c3a1c2b3c1
+a2c1b1a2b1a1c3a1b1a3b1c1
+a2c1a6c1a7c1
+a2c1a3c1a2c1a2c1a4c1
+a2c1a4c5a5c1
+a3c1a4c1e1c1a5c1
+a4c1a4c1a5c1
+a5c1c9
+"""
+
+
+
 
 // Make a canvas
 let canvas = Canvas(width: 402, height: 402)
@@ -54,27 +69,21 @@ var drawThisManyPixels = 0
 for character in encodedBitmap {
     
     // Set colour at start of a line
-    if character == "0" {
+    if character == "a" {
         
+        
+        canvas.fillColor = Color.white
+        currentColor = "white"
+        
+    } else if character == "b" {
+        canvas.fillColor = Color.yellow
+        currentColor = "yellow"
+    } else if character == "c" {
         canvas.fillColor = Color.black
         currentColor = "black"
-
-    } else if character == "," {
-        
-        // We have a new number
-        // Are we past the first pixel in a row?
-        if x > 0 {
-
-            // Toggle the pixel colour
-            if currentColor == "black" {
-                currentColor = "white"
-                canvas.fillColor = Color.white
-            } else {
-                currentColor = "black"
-                canvas.fillColor = Color.black
-            }
-
-        }
+    } else if character == "e" {
+        canvas.fillColor = Color.red
+        currentColor = "red"
         
     } else if character == "\n" {
         
@@ -86,26 +95,28 @@ for character in encodedBitmap {
         // Default colour after new line is white
         canvas.fillColor = Color.white
         currentColor = "white"
+
         
     } else {
         
         // Get the new number of pixels to draw
+        print(character)
         drawThisManyPixels = Int(String(character))!
+    
         
         // Draw the pixels
         for _ in 1...drawThisManyPixels {
-
             // Draw the enlarged "pixel"
             canvas.drawRectangle(bottomLeftX: x, bottomLeftY: y, width: cellSize, height: cellSize)
             
             // Increase x so that the next pixel is drawn to the right of this one
             x += cellSize
-
+            
         }
-
+        
     }
-    
 }
+
 
 /*:
  ### Check the results
@@ -139,3 +150,4 @@ for character in encodedBitmap {
  The code below is necessary to see results in the Assistant Editor at right. Please do not remove.
  */
 PlaygroundPage.current.liveView = canvas.imageView
+
