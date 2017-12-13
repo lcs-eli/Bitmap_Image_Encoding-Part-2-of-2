@@ -33,6 +33,7 @@ var x = 0
 for character in encodedBitmap {
     
     // Decide what colour of square to draw
+    character
     if character == "0" {
         canvas.fillColor = Color.black
     } else {
