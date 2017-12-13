@@ -22,10 +22,10 @@
  */
 
 // Here's my list of points describing how I decoded the image...
-// 1. 
-// 2.
-// 3.
-// 4.
+// 1. daw the image on paer first
+// 2. each color I use on the image represent a letter
+// 3.decode the image on paper
+// 4.put the code into xcode
 // 5.
 // etc. (add more points as needed)
 
